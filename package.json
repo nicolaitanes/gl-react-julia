@@ -1,0 +1,48 @@
+{
+  "name": "gl-react-julia",
+  "version": "1.0.0",
+  "description": "Universal gl-react Julia set fractals",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolaitanes/gl-react-julia.git"
+  },
+  "keywords": [
+    "g-react",
+    "gl",
+    "react",
+    "julia",
+    "fractal"
+  ],
+  "files": [
+    "lib/**/*"
+  ],
+  "author": "Christopher Nicolai",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/gl-react": "^3.15.4",
+    "@types/gl-react-dom": "^3.15.4",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "gl-react": "^4.1.0",
+    "gl-react-dom": "^5.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tslint": "^6.1.3",
+    "typescript": "^4.3.0"
+  },
+  "peerDependencies": {
+    "gl-react": "^4.1.0",
+    "react": "^16.8.0"
+  }
+}
