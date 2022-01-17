@@ -49,7 +49,7 @@ varying vec2 uv;
 uniform vec2 center;
 uniform float zoom;
 uniform vec2 c;
-uniform float p;
+uniform float p0;
 uniform float q;
 uniform float r;
 uniform sampler2D image;
@@ -87,7 +87,6 @@ void main() {
     vec2 z = (leftBottom + uv * zRange);
     vec2 z0 = z;
     vec2 lastZ = z;
-    float p0 = p;
 
     // More than 64 iterations are usually imperceptible at GPU resolution
     int iter = ${(maxIterations || 64) + 1};
@@ -102,7 +101,7 @@ void main() {
         gl_FragColor.rgb += .01*mix(gl_FragColor.rgb, rgb, mag2i);
 
         // Modify the power with the fieldExpr function
-        p = p0;
+        float p = p0;
         ${fieldExpr
             ? ('vec3 hsv = rgb2hsv(rgb);  p = q + (r-q)*(' + fieldExpr + ');')
             : ''
@@ -145,6 +144,6 @@ void main() {
         }), [fieldExpr, maxIterations])
     return <Node
         shader={shaders.shader}
-        uniforms={{ center, zoom: 2**(-zoom), c, p, q, r, image }}
+        uniforms={{ center, zoom: 2**(-zoom), c, p0: p, q, r, image }}
     />;
 }
