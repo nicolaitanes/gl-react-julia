@@ -19,3 +19,28 @@ This package includes a standard Julia set (`<JuliaFractal>`)), along with two e
 - fieldExpr: e.g. `dot(hsv.xz, z)` -- Julia power `p` varies with the angle between (hue, brightness) and (real, imaginary) vectors.  The output is interpreted as a proportion of `r` vs `q`: `p = q + (r-q)*$fieldExpr`.
 - q (`JuliaFieldFractal` only) -- input to `fieldExpr`
 - r (`JuliaFieldFractal` only) -- input to `fieldExpr`
+
+## npm
+
+`npm install --save gl-react-julia gl-react gl-react-dom`
+`npm install --save-dev @types/gl-react @types/gl-react-dom buffer`
+
+## Example
+
+```
+import { Surface } from "gl-react-dom"; // for React DOM
+import { MandelicsmageFractal } from 'gl-react-julia';
+
+const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/8/8c/%22Alexander_Visits_the_Sage_Plato_in_his_Mountain_Cave%22%2C_Folio_from_a_Khamsa_%28Quintet%29_of_Amir_Khusrau_Dihlavi_MET_h1_13.228.30.jpg';
+
+function App() {
+    return <Surface width={width} height={height}>
+        <MandelicsImageFractal
+          center={[0, 0]}
+          zoom={0}
+          c={[1.25, 1.25]}
+          p={3}
+          image={imageUrl} 
+        />;
+}
+```

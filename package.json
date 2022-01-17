@@ -1,6 +1,6 @@
 {
   "name": "gl-react-julia",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Universal gl-react Julia set fractals",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -43,6 +43,6 @@
   },
   "peerDependencies": {
     "gl-react": "^4.1.0",
-    "react": "^16.8.0"
+    "react": "^17.0.38"
   }
 }
